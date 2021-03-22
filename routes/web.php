@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+/* Comentamos esta línea de código ya que nuestra administración de rutas
+    se realizará con react-router
+*/
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+Route::view('/{path?}', 'app');
