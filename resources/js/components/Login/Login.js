@@ -44,8 +44,8 @@ class Login extends Component{
                 <Navba />
                 <div className="row justify-content-center">
                     <div className="col-md-8 mt-2">
-                        <div className="card bg-dark">
-                            <div className="card-header text-center">
+                        <div className="card bg-dark border-light">
+                            <div className="card-header text-center bg-blue-especial">
                                 <h3 className="text-white">Login</h3>
                             </div>
                             <div className="card-body">

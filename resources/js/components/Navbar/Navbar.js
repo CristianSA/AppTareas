@@ -29,7 +29,6 @@ class Navba extends Component{
             console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
         }
         if(this.props.link){
-            const {name, email} = this.props.location.state.user;
             return(
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <a className="navbar-brand text-white" href="#">App Tareas</a>

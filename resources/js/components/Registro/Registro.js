@@ -28,7 +28,7 @@ class Registro extends Component{
         .then((response) => {
             this.props.history.push({
                 pathname: 'home',
-                state: {user: response.data.usuario_data}
+                state: response.data
             })
         })
     }
@@ -44,8 +44,8 @@ class Registro extends Component{
                 <Navba/>
                 <div className="row justify-content-center">
                     <div className="col-md-8 mt-2">
-                        <div className="card bg-dark">
-                            <div className="card-header">
+                        <div className="card bg-dark border-light">
+                            <div className="card-header bg-blue-especial">
                                 <h3 className="text-white">
                                     Registro
                                 </h3>
@@ -56,7 +56,7 @@ class Registro extends Component{
                                     <input type="hidden" name="_token" value={token}/>
                                     <div className="form-group">
                                         <label className="text-white">Name</label>
-                                        <input type="text" name="name" className="form-control" value={this.state.registroUsuarioData.name}
+                                        <input type="text" name="name" className="form-control" value={this.state.registroUsuarioData.name || ''}
                                             onChange={(e) => {
                                                 let registroUsuarioData = this.state
                                                 registroUsuarioData.name = e.target.value
@@ -66,7 +66,7 @@ class Registro extends Component{
                                     </div>
                                     <div className="form-group">
                                         <label className="text-white">Email</label>
-                                        <input type="email" name="email" className="form-control" value={this.state.registroUsuarioData.email}
+                                        <input type="email" name="email" className="form-control" value={this.state.registroUsuarioData.email || ''}
                                             onChange={(e) => {
                                                 let registroUsuarioData = this.state
                                                 registroUsuarioData.email = e.target.value
@@ -76,7 +76,7 @@ class Registro extends Component{
                                     </div>
                                     <div className="form-group">
                                         <label className="text-white" >Password</label>
-                                        <input type="password" name="password" className="form-control" value={this.state.registroUsuarioData.password}
+                                        <input type="password" name="password" className="form-control" value={this.state.registroUsuarioData.password || ''}
                                             onChange={(e) => {
                                                 let registroUsuarioData = this.state
                                                 registroUsuarioData.password = e.target.value
@@ -86,7 +86,7 @@ class Registro extends Component{
                                     </div>
                                     <div className="form-group">
                                         <label className="text-white">Password Confirmation</label>
-                                        <input type="password" name="password_confirmation" className="form-control" value={this.state.registroUsuarioData.password_confirmation}
+                                        <input type="password" name="password_confirmation" className="form-control" value={this.state.registroUsuarioData.password_confirmation || ''}
                                             onChange={(e) => {
                                                 let registroUsuarioData = this.state
                                                 registroUsuarioData.password_confirmation = e.target.value

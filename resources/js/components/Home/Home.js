@@ -14,7 +14,7 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            usuarioData: this.props.location.state.user,
+            usuarioData: this.props.location.state,
             usuarioProyectos: [],
             nuevoProyectoData: {
                 titulo: "",
@@ -58,6 +58,7 @@ class Home extends Component {
         let {nuevoProyectoData} = this.state
         nuevoProyectoData.fecha_fin = format(date, 'yyyy-MM-dd')
         this.setState({nuevoProyectoData})
+        console.log(nuevoProyectoData);
     }
     nuevoProyecto(e){
         e.preventDefault();
@@ -66,8 +67,7 @@ class Home extends Component {
         const {titulo, descripcion, sprints, estado,fecha_inicio, fecha_fin, token} = this.state.nuevoProyectoData; 
         axios.post('http://127.0.0.1:8000/api/proyecto/nuevo/'+id, {titulo, descripcion, sprints, estado, fecha_inicio, fecha_fin})
         .then((response) => {
-            console.log(response);
-            let usuarioProyectos = this.state;
+            let {usuarioProyectos} = this.state;
             this.usuarioProyectos();
             this.setState({usuarioProyectos, nuevoProyectoModal: false, nuevoProyectoData:{
                 titulo: "",
@@ -78,6 +78,7 @@ class Home extends Component {
                 fecha_fin: "",
                 token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }})
+            
         })
     }
     render(){
@@ -100,7 +101,7 @@ class Home extends Component {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-12 col-md-12 text-right">
-                                        <button className="btn btn-success btn-sm" onClick={this.toggleNuevoProyectoModal.bind(this)}>
+                                        <button className="btn btn-success btn-sm" type="button" onClick={this.toggleNuevoProyectoModal.bind(this)}>
                                             Nuevo proyecto
                                         </button>
                                     </div>

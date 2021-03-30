@@ -6,13 +6,6 @@ import Proyecto from './Proyecto';
 registerLocale('es', es)
 
 class Proyectos extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            
-        }
-
-    }
     render(){
         return this.props.proyectos.map((proyecto) => (
             <Proyecto
