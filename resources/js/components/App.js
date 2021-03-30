@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {  BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import '../../css/app.css';
+import "react-datepicker/dist/react-datepicker.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Index from './Index/Index';
+import Login from './Login/Login';
+import Registro from './Registro/Registro';
+import Home from './Home/Home';
 
-function App() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
 
-                        <div className="card-body">I'm an example component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+export default class App extends Component{
+    render(){
+        return(
+            <Router>
+                <Switch>
+                    <Route exact path='/' component={Index}/>
+                    <Route path='/login' component={Login}/>
+                    <Route path='/registro' component={Registro}/>
+                    <Route path='/home' component={Home}/>
+                </Switch>
+            </Router>
+        );
+    }
 }
 
-export default App;
 
 if (document.getElementById('app')) {
     ReactDOM.render(<App />, document.getElementById('app'));
